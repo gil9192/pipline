@@ -27,6 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing Laptop'
+                sh 'test -f build/computer.txt'
             }
         }
     }
@@ -36,8 +37,8 @@ pipeline {
             echo 'Build completed successfully!'
             archiveArtifacts artifacts: 'build/**' 
         }
-        // failure {
-        //     echo 'Build failed!'
-        // }
+        failure {
+            echo 'Build failed!'
+        }
     }
 }
