@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building New Laptop'
-                sh 'mkdir build'
+                sh 'mkdir -p build'
                 sh 'touch build/computer.txt'
                 sh 'echo "Mainboard" >> build/computer.txt'
             }
