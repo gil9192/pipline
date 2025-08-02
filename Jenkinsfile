@@ -17,21 +17,21 @@ pipeline {
                 echo "Building New $BUILD_FILE_NAME"
                 sh '''
                     mkdir -p build
-                    touch build/computer.txt
-                    echo "Mainboard" >> build/computer.txt
-                    echo "Display" >> build/computer.txt
-                    echo "Keyboard" >> build/computer.txt
+                    touch build/$BUILD_FILE_NAME
+                    echo "Mainboard" >> build/$BUILD_FILE_NAME
+                    echo "Display" >> build/$BUILD_FILE_NAME
+                    echo "Keyboard" >> build/$BUILD_FILE_NAME
                 '''
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing Laptop'
+                echo "Testing $BUILD_FILE_NAME"
                 sh '''
-                    test -f build/computer.txt
-                    grep "Mainboard" build/computer.txt
-                    grep "Display" build/computer.txt
-                    grep "Keyboard" build/computer.txt
+                    test -f build/$BUILD_FILE_NAME
+                    grep "Mainboard" build/$BUILD_FILE_NAME
+                    grep "Display" build/$BUILD_FILE_NAME
+                    grep "Keyboard" build/$BUILD_FILE_NAME
                 '''
             }
         }
