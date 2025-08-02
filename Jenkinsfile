@@ -13,6 +13,7 @@ pipeline {
                 sh 'mkdir -p build'
                 sh 'touch build/computer.txt'
                 sh 'echo "Mainboard" >> build/computer.txt'
+                sh 'cat build/computer.txt'
             }
         }
     }
