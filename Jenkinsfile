@@ -20,5 +20,17 @@ pipeline {
                 sh 'cat build/computer.txt'
             }
         }
+    
+    post {
+        always {
+            echo 'Cleaning up...'
+            sh 'rm -rf build'
+        }
+        success {
+            echo 'Build completed successfully!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
     }
 }
