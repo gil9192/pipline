@@ -24,7 +24,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            sh 'rm -rf build'
+            cleanWs()
         }
         success {
             echo 'Build completed successfully!'
