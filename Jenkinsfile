@@ -24,6 +24,11 @@ pipeline {
                 '''
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing Laptop'
+            }
+        }
     }
     
     post {
