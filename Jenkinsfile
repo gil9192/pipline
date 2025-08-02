@@ -24,6 +24,24 @@ pipeline {
                 '''
             }
         }
+        stage('Build W/ docker') {
+            agent {
+                docker {
+                    image 'alpine:latest'
+                }
+            }
+            steps {
+                echo "Building New $BUILD_FILE_NAME on docker"
+                sh '''
+                    mkdir -p build
+                    touch build/$BUILD_FILE_NAME
+                    echo "Mainboard" >> build/$BUILD_FILE_NAME
+                    echo "Display" >> build/$BUILD_FILE_NAME
+                    echo "Keyboard" >> build/$BUILD_FILE_NAME
+                    cat /etc/os-release
+                '''
+            }
+        }
         stage('Test') {
             steps {
                 echo "Testing $BUILD_FILE_NAME"
