@@ -6,7 +6,7 @@ pipeline {
             retries 2
         }
     }
-    
+
     stages {
         stage('Build') {
             steps {
@@ -29,8 +29,8 @@ pipeline {
             echo 'Build completed successfully!'
             archiveArtifacts artifacts: 'build/**' 
         }
-        failure {
-            echo 'Build failed!'
-        }
+        // failure {
+        //     echo 'Build failed!'
+        // }
     }
 }
