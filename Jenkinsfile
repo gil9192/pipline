@@ -6,6 +6,7 @@ pipeline {
             retries 2
         }
     }
+    
     stages {
         stage('Build') {
             steps {
@@ -21,6 +22,7 @@ pipeline {
                 sh 'cat build/computer.txt'
             }
         }
+    }
     
     post {
         success {
