@@ -4,7 +4,7 @@ kind: Pod
 spec:
   containers:
   - name: shell
-    image: alpine:latest
+    image: ubuntu:24.04
     command:
     - sleep
     args:
