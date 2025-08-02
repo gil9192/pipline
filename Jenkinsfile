@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                cleanWs()
                 echo 'Building New Laptop'
                 sh 'mkdir -p build'
                 sh 'touch build/computer.txt'
@@ -22,12 +23,9 @@ pipeline {
         }
     
     post {
-        always {
-            echo 'Cleaning up...'
-            cleanWs()
-        }
         success {
             echo 'Build completed successfully!'
+            archiveArtifacts artifacts: 'build/**' 
         }
         failure {
             echo 'Build failed!'
