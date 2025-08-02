@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building New $BUILD_FILE_NAME'
+                echo "Building New $BUILD_FILE_NAME"
                 sh '''
                     mkdir -p build
                     touch build/computer.txt
