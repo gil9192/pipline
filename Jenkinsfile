@@ -15,19 +15,20 @@ pipeline {
                     mkdir -p build
                     touch build/computer.txt
                     echo "Mainboard" >> build/computer.txt
-                    cat build/computer.txt
-                    sleep 600
                     echo "Display" >> build/computer.txt
-                    cat build/computer.txt
                     echo "Keyboard" >> build/computer.txt
-                    cat build/computer.txt
                 '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing Laptop'
-                sh 'test -f build/computer.txt'
+                sh '''
+                    test -f build/computer.txt
+                    grep "Mainboard" build/computer.txt
+                    grep "Display" build/computer.txt
+                    grep "Keyboard" build/computer.txt
+                '''
             }
         }
     }
