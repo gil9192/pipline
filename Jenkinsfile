@@ -7,10 +7,14 @@ pipeline {
         }
     }
 
+    environment {
+        BUILD_FILE_NAME = 'laptop.txt'
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building New Laptop'
+                echo 'Building New $BUILD_FILE_NAME'
                 sh '''
                     mkdir -p build
                     touch build/computer.txt
