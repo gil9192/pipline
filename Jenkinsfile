@@ -11,15 +11,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building New Laptop'
-                sh 'mkdir -p build'
-                sh 'touch build/computer.txt'
-                sh 'echo "Mainboard" >> build/computer.txt'
-                sh 'cat build/computer.txt'
-                sh 'sleep 600'
-                sh 'echo "Display" >> build/computer.txt'
-                sh 'cat build/computer.txt'
-                sh 'echo "Keyboard" >> build/computer.txt'
-                sh 'cat build/computer.txt'
+                sh '''
+                    mkdir -p build
+                    touch build/computer.txt
+                    echo "Mainboard" >> build/computer.txt
+                    cat build/computer.txt
+                    sleep 600
+                    echo "Display" >> build/computer.txt
+                    cat build/computer.txt
+                    echo "Keyboard" >> build/computer.txt
+                    cat build/computer.txt
+                '''
             }
         }
     }
