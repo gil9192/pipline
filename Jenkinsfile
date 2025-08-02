@@ -7,9 +7,12 @@ pipeline {
         }
     }
     stages {
-        stage('Main') {
+        stage('Build') {
             steps {
-                sh 'echo "Hello from Jenkins!"'
+                echo 'Building New Laptop'
+                sh 'mkdir build'
+                sh 'touch build/computer.txt'
+                sh 'echo "Mainboard" >> build/computer.txt'
             }
         }
     }
